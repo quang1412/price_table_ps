@@ -1,7 +1,12 @@
+html{
+	font-size: 14px;
+}
+
 body{
-	font-size: 19px;
-	padding-top: 3em;
-	padding-bottom: 3em;
+	font-size: 14px;
+	font-weight: 600;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 }  
 
 div#main {
@@ -9,37 +14,20 @@ div#main {
 }
 
 div#time {
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 1em;
-    padding: 0 1em;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
 }
 
 div.col{
-	padding: 15px;
+	padding: 1rem;
 	
 }
 
-table {
-	border-left-width: 0;
-	border-right-width: 0;
-	border-top-width: .1em;
-	border-bottom-width: .1em;
-	border-color: #878787;
-	font-weight: 600;
-}
-
-table tr:nth-child(3) td{
-	/* border-top-width: 2px */
-}
-
-table tr, table tr td{
-	border: .1em solid #878787;
-} 
-
-table tr td:last-child{
-	border-right-width: .2em;
-}
+table { 
+	
+}  
 
 table tr:nth-child(-n+2) {
 	display: none;
@@ -47,15 +35,14 @@ table tr:nth-child(-n+2) {
 
 table tr td {
 	background: white;
-	padding: .3em .5em;
+	padding: .3rem .5rem;
 }
 
 table tr td:first-child{
-	font-size: 1.3em;
+	font-size: 1.3rem;
 	max-width: 8em;
 	font-weight: 600;
 	text-align: center;
-	border-left-width: .2em;
 }
 
 table tr td:nth-child(4),
@@ -71,8 +58,24 @@ table tr td:nth-child(7) {
     border-right: 0
 } 
 
-table tr.emptyRow td{
+table, tr, td{
+	border: 0
+}
+
+table tr:not(.emptyRow):nth-child(3) td{
+	border-top: .15rem solid #898989;
+}
+
+table tr.emptyRow td{ 
 	color:white;
-	border-left: 0; 
-	border-right: 0;
+	border-bottom: .15rem solid #898989;
+}
+
+table tr:not(.emptyRow) td{
+	border-bottom: .15rem solid #898989;
+	border-right: .15rem solid #898989;
+}
+
+table tr:not(.emptyRow) td:first-child{
+	border-left: .15rem solid #898989;
 }
