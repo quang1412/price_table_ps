@@ -1,5 +1,5 @@
 body{
-	font-size: 14px; 
+	font-size: 19px;
 }  
 
 div#main {display: flex;}
@@ -15,10 +15,12 @@ div.col{
 }
 
 table {
-	border-left-width: 0; 
-	border-right-width: 0; 
-	/* border-top-width: 1px;  */
-	/* border-bottom-width: 1px;  */
+	border-left-width: 0;
+	border-right-width: 0;
+	border-top-width: .1em;
+	border-bottom-width: .1em;
+	border-color: #878787;
+	font-weight: 600;
 }
 
 table tr:nth-child(3) td{
@@ -26,11 +28,11 @@ table tr:nth-child(3) td{
 }
 
 table tr, table tr td{
-	border: 1px solid #333;
+	border: .1em solid #878787;
 } 
 
 table tr td:last-child{
-	border-right-width: 2px
+	border-right-width: .2em;
 }
 
 table tr:nth-child(-n+2) {
@@ -44,11 +46,12 @@ table tr td {
 }
 
 table tr td:first-child{
+	font-size: 1.1em;
 	max-width: 8em;
 	font-weight: 600;
 	text-align: center;
-/* 	text-wrap: wrap; */
-	border-left-width: 2px;
+	/* 	text-wrap: wrap; */
+	border-left-width: .2em;
 }
 
 table tr td:nth-child(4),
