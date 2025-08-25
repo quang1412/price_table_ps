@@ -26,7 +26,7 @@
     let htmlTable1 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
     document.querySelector('div#col1').innerHTML = htmlTable1;
 
-    let range2 = 'A:H';
+    let range2 = 'J:Q';
     let url2 = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range2}&headers=${headers}`;
     let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url2);
     document.querySelector('div#col2').innerHTML = htmlTable2;
