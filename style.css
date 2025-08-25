@@ -8,6 +8,11 @@ div#time {
     margin-bottom: 1em;
 }
 
+div.col{
+	padding: 15px;
+	
+}
+
 table {
 	border-left-width: 0; 
 	border-right-width: 0; 
@@ -34,14 +39,14 @@ table tr:nth-child(-n+2) {
 table tr td {
 	background: white;
 	padding: .3em .5em;
-	text-wrap: nowrap;
+/* 	text-wrap: nowrap; */
 }
 
 table tr td:first-child{
 	max-width: 8em;
 	font-weight: 600;
 	text-align: center;
-	text-wrap: wrap;
+/* 	text-wrap: wrap; */
 	border-left-width: 2px;
 }
 
