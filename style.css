@@ -1,10 +1,10 @@
 html{
-	font-size: 14px;
+	font-size: 16px;
 }
 
 body{
-	font-size: 14px;
-	font-weight: 600;
+	font-size: 1rem;
+	font-weight: 500;
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 }  
@@ -35,7 +35,7 @@ table tr:nth-child(-n+2) {
 
 table tr td {
 	background: white;
-	padding: .3rem .5rem;
+	padding: .2rem .4rem;
 }
 
 table tr td:first-child{
@@ -43,6 +43,23 @@ table tr td:first-child{
 	max-width: 8em;
 	font-weight: 600;
 	text-align: center;
+}
+
+table, tr, td{
+	border: 0
+}
+
+table tr:not(.emptyRow):nth-child(3) td{
+	border-top: .15rem solid #898989;
+}
+
+table tr:not(.emptyRow) td{
+	border-bottom: .15rem solid #898989;
+	border-right: .15rem solid #898989;
+}
+
+table tr:not(.emptyRow) td:first-child{
+	border-left: .15rem solid #898989;
 }
 
 table tr td:nth-child(4),
@@ -56,26 +73,9 @@ table tr td:nth-child(3),
 table tr td:nth-child(5),
 table tr td:nth-child(7) {
     border-right: 0
-} 
-
-table, tr, td{
-	border: 0
-}
-
-table tr:not(.emptyRow):nth-child(3) td{
-	border-top: .15rem solid #898989;
 }
 
 table tr.emptyRow td{ 
 	color:white;
 	border-bottom: .15rem solid #898989;
-}
-
-table tr:not(.emptyRow) td{
-	border-bottom: .15rem solid #898989;
-	border-right: .15rem solid #898989;
-}
-
-table tr:not(.emptyRow) td:first-child{
-	border-left: .15rem solid #898989;
 }
