@@ -1,0 +1,57 @@
+body{
+	font-size: 14px;
+	padding: 1em;
+}
+
+table {
+	border-width: 0; 
+}
+
+table tr, table tr td{
+	border: 1px solid black;
+} 
+
+table tr td:last-child{
+	border-right-width: 2px
+}
+
+table tr:nth-child(3) td{
+	border-top-width: 2px
+}
+
+table tr:nth-child(-n+2) {
+	display: none;
+}
+
+table tr td {
+	background: white;
+	padding: .3em .5em;
+	text-wrap: nowrap;
+}
+
+table tr td:first-child{
+	max-width: 8em;
+	font-weight: 600;
+	text-align: center;
+	text-wrap: wrap;
+	border-left-width: 2px;
+}
+
+table tr td:nth-child(4),
+table tr td:nth-child(6),
+table tr td:nth-child(8) {
+	color: red;
+    border-left: 0;
+}
+
+table tr td:nth-child(3),
+table tr td:nth-child(5),
+table tr td:nth-child(7) {
+    border-right: 0
+} 
+
+table tr.emptyRow td{
+	color:white;
+	border-left: 0; 
+	border-right: 0;
+}
