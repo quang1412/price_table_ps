@@ -20,7 +20,7 @@ table tr:nth-child(3) td{
 }
 
 table tr, table tr td{
-	border: 1px solid inherit;
+	border: 1px solid #333;
 } 
 
 table tr td:last-child{
