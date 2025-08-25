@@ -1,7 +1,8 @@
 body{
-	font-size: 14px;
-	padding: 1em;
-}
+	font-size: 14px; 
+}  
+
+div#main {display: flex;}
 
 div#time {
     font-weight: 600;
