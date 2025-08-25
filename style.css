@@ -4,19 +4,22 @@ body{
 }
 
 table {
-	border-width: 0; 
+	border-left-width: 0; 
+	border-right-width: 0; 
+	/* border-top-width: 1px;  */
+	/* border-bottom-width: 1px;  */
+}
+
+table tr:nth-child(3) td{
+	/* border-top-width: 2px */
 }
 
 table tr, table tr td{
-	border: 1px solid black;
+	border: 1px solid inherit;
 } 
 
 table tr td:last-child{
 	border-right-width: 2px
-}
-
-table tr:nth-child(3) td{
-	border-top-width: 2px
 }
 
 table tr:nth-child(-n+2) {
