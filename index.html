@@ -31,7 +31,947 @@
   (function(){
 
     const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString); 
+    const urlParams = new URLSearchParams(queryString);
+
+    const testdata = function(){
+        return `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+    <html>
+    <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>C2:J</title>
+    </head>
+    <body>
+    <table border="1" cellpadding="2" cellspacing="0">
+    <tr style="font-weight: bold; background-color: #aaa;">
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mi 15 Ultra</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Đen Bạc</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>24.556</td><td>Đen Bạc</td><td>&nbsp;</td><td>Green</td><td>24.930</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>24.743</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>&nbsp;</td><td>Đen Bạc</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Mi 15 Pro</td><td>12/256</td><td>Bạc</td><td>&nbsp;</td><td>Green</td><td>16.217</td><td>Trắng</td><td>16.217</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Bạc</td><td>19.532</td><td>Green</td><td>19.532</td><td>Trắng</td><td>19.532</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>19.532</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>&nbsp;</td><td>Green</td><td>17.765</td><td>Trắng</td><td>17.765</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>17.877</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mi 15S Pro</td><td>16/1T</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Blue</td><td>18.609</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Mi 15</td><td>12/256</td><td>Bạc</td><td>13.445</td><td>Đen</td><td>13.445</td><td>Green</td><td>13.445</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>13.445</td><td>Trắng</td><td>13.445</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Bạc</td><td>14.606</td><td>Đen</td><td>14.606</td><td>Green</td><td>14.606</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>14.606</td><td>Trắng</td><td>14.606</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Bạc</td><td>16.891</td><td>Đen</td><td>16.891</td><td>Green</td><td>16.891</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>16.891</td><td>Trắng</td><td>16.891</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>15.318</td><td>Đen</td><td>15.318</td><td>Green</td><td>15.318</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>15.318</td><td>Trắng</td><td>15.318</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mi 14</td><td>12/256</td><td>Đen</td><td>10.112</td><td>Green</td><td>9.963</td><td>Hồng</td><td>9.963</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>10.112</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>10.712</td><td>Green</td><td>&nbsp;</td><td>Hồng</td><td>10.712</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>10.712</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Mi Mix Flip2</td><td>12/256</td><td>Green</td><td>19.283</td><td>Tím</td><td>19.095</td><td>Trắng</td><td>19.095</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Vàng</td><td>20.144</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Green</td><td>&nbsp;</td><td>Tím</td><td>21.914</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Vàng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Green</td><td>&nbsp;</td><td>Tím</td><td>24.481</td><td>Trắng</td><td>24.368</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Vàng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mipad 6 Pro</td><td>12/256</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>7.750</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>6.804</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Mipad 7S Pro 12.4</td><td>12/256</td><td>Đen</td><td>12.192</td><td>Tím</td><td>12.304</td><td>Titan</td><td>12.304</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Titan</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mipad 7 Ultra</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Mipad 7 Pro</td><td>12/256</td><td>Blue</td><td>10.205</td><td>Đen</td><td>10.205</td><td>Green</td><td>10.205</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>11.910</td><td>Green</td><td>12.097</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>8.509</td><td>Green</td><td>8.322</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>9.146</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mipad 7</td><td>12/256</td><td>Blue</td><td>8.499</td><td>Đen</td><td>8.499</td><td>Green</td><td>8.499</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>6.327</td><td>Đen</td><td>6.290</td><td>Green</td><td>6.290</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>7.451</td><td>Đen</td><td>7.451</td><td>Green</td><td>7.451</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Mipad 6S Pro 12.4</td><td>12/256</td><td>Blue</td><td>11.610</td><td>Đen</td><td>11.610</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>12.005</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/1T</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>9.418</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>9.418</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>RM PAD 2 </td><td>6/128</td><td>Đen</td><td>3.658</td><td>Tím</td><td>3.658</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>RM Pad SE</td><td>6/128</td><td>Green</td><td>2.909</td><td>Tím</td><td>2.909</td><td>Xám</td><td>2.947</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Green</td><td>3.546</td><td>Tím</td><td>3.546</td><td>Xám</td><td>3.546</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Green</td><td>&nbsp;</td><td>Tím</td><td>4.370</td><td>Xám</td><td>4.370</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>RM K Pad</td><td>8/256</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>K80 Pro Lamborghini</td><td>16/1T</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>K80 Ultra</td><td>12/256</td><td>Blue</td><td>9.184</td><td>Green</td><td>9.184</td><td>Trắng</td><td>9.184</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>9.184</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>10.637</td><td>Green</td><td>10.637</td><td>Trắng</td><td>10.637</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>10.637</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/1T</td><td>Blue</td><td>&nbsp;</td><td>Green</td><td>13.183</td><td>Trắng</td><td>13.183</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>13.183</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Blue</td><td>10.027</td><td>Green</td><td>10.027</td><td>Trắng</td><td>10.027</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>10.027</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Blue</td><td>11.610</td><td>Green</td><td>11.610</td><td>Trắng</td><td>11.610</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xám</td><td>11.610</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>K80 Pro</td><td>12/256</td><td>Đen</td><td>10.187</td><td>Trắng</td><td>10.187</td><td>Xanh</td><td>10.187</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>14.045</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>12.210</td><td>Trắng</td><td>12.210</td><td>Xanh</td><td>12.210</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>K80</td><td>12/256</td><td>Blue</td><td>6.935</td><td>Đen</td><td>6.935</td><td>Green</td><td>6.935</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>6.935</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>8.799</td><td>Đen</td><td>8.799</td><td>Green</td><td>8.799</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>8.799</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Blue</td><td>7.553</td><td>Đen</td><td>7.553</td><td>Green</td><td>7.553</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>7.553</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Blue</td><td>9.923</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>9.923</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>9.923</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>K80 (TV)</td><td>12/256</td><td>Blue</td><td>7.585</td><td>Đen</td><td>7.585</td><td>Green</td><td>7.585</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>7.585</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>9.442</td><td>Đen</td><td>9.442</td><td>Green</td><td>9.442</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>9.442</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/256</td><td>Blue</td><td>8.241</td><td>Đen</td><td>8.203</td><td>Green</td><td>8.241</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>8.241</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Blue</td><td>10.563</td><td>Đen</td><td>&nbsp;</td><td>Green</td><td>10.563</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>10.563</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 15 Pro+</td><td>12/256</td><td>Đen</td><td>7.300</td><td>Tím</td><td>7.300</td><td>Trắng</td><td>7.300</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>7.300</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Note 15 pro</td><td>12/256</td><td>Đen</td><td>6.148</td><td>Tím</td><td>6.148</td><td>Trắng</td><td>6.148</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>6.148</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>5.380</td><td>Tím</td><td>5.380</td><td>Trắng</td><td>5.380</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>5.380</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 14 Pro+</td><td>12/256</td><td>Đen</td><td>6.139</td><td>Trắng</td><td>6.139</td><td>Xanh</td><td>6.139</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>6.719</td><td>Trắng</td><td>6.682</td><td>Xanh</td><td>6.682</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>7.094</td><td>Trắng</td><td>7.056</td><td>Xanh</td><td>7.056</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 14 Pro+ (TV)</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 14 Pro</td><td>12/256</td><td>Đen</td><td>5.324</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>5.324</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>5.324</td><td>Xanh</td><td>5.324</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>5.970</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>5.970</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>5.970</td><td>Xanh</td><td>5.970</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/128</td><td>Đen</td><td>4.200</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>4.144</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>4.200</td><td>Xanh</td><td>4.144</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>4.650</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>4.650</td><td>Xanh</td><td>4.650</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Note 14 Pro (TV)</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Đen</td><td>&nbsp;</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>&nbsp;</td><td>Đỏ</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 14</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>6/128</td><td>Đen</td><td>3.264</td><td>Trắng</td><td>3.264</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/128</td><td>Đen</td><td>3.432</td><td>Trắng</td><td>3.432</td><td>Xanh</td><td>3.432</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>4.050</td><td>Trắng</td><td>4.050</td><td>Xanh</td><td>4.050</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Note 14 (TV)</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>6/128</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 13 Pro</td><td>12/256</td><td>Blue</td><td>4.425</td><td>Đen</td><td>4.425</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>4.425</td><td>Trắng</td><td>4.425</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>4.949</td><td>Đen</td><td>4.949</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>4.949</td><td>Trắng</td><td>4.949</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>3.770</td><td>Đen</td><td>3.770</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>3.770</td><td>Trắng</td><td>3.770</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>3.994</td><td>Đen</td><td>3.994</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>3.994</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Note 13 Pro (TV)</td><td>12/256</td><td>Blue</td><td>4.810</td><td>Đen</td><td>4.810</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>4.810</td><td>Trắng</td><td>4.810</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>5.353</td><td>Đen</td><td>5.353</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>5.353</td><td>Trắng</td><td>5.353</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>4.155</td><td>Đen</td><td>4.155</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>4.155</td><td>Trắng</td><td>4.155</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>4.379</td><td>Đen</td><td>4.379</td><td>Đỏ</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>4.379</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Note 13</td><td>12/256</td><td>Blue</td><td>4.350</td><td>Đen</td><td>4.350</td><td>Trắng</td><td>4.350</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>6/128</td><td>Blue</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/128</td><td>Blue</td><td>3.077</td><td>Đen</td><td>3.077</td><td>Trắng</td><td>3.077</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Blue</td><td>3.507</td><td>Đen</td><td>3.507</td><td>Trắng</td><td>3.507</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>RM Turbo4 Pro</td><td>12/256</td><td>Đen</td><td>6.457</td><td>Hồng</td><td>6.457</td><td>Trắng</td><td>6.457</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>6.457</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Hồng</td><td>8.115</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>&nbsp;</td><td>Hồng</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/256</td><td>Đen</td><td>&nbsp;</td><td>Hồng</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>&nbsp;</td><td>Hồng</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>RM Turbo4</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>5.792</td><td>Xanh</td><td>5.792</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>6.607</td><td>Trắng</td><td>6.607</td><td>Xanh</td><td>6.607</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>6.495</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>7.356</td><td>Trắng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>RM Turbo3</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Titan</td><td>5.473</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Titan</td><td>5.773</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>&nbsp;</td><td>Titan</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>RM Turbo3 (TV)</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Titan</td><td>5.783</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Titan</td><td>6.083</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>ROG 9 Pro</td><td>16/512</td><td>Đen</td><td>20.748</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>24/1T</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>ROG 9</td><td>12/256</td><td>Đen</td><td>17.709</td><td>Trắng</td><td>17.671</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>19.132</td><td>Trắng</td><td>19.057</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>ROG 8Pro</td><td>16/512</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>24/1T</td><td>Đen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>ROG 8</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Xám</td><td>13.389</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/256</td><td>Đen</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Magic 10S Pro+</td><td>16/512</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Magic 10S Pro</td><td>12/256</td><td>Bạc</td><td>18.620</td><td>Đen</td><td>17.609</td><td>Trong</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>20.605</td><td>Đen</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Magic 10 Air</td><td>12/256</td><td>Cam</td><td>10.693</td><td>Đen</td><td>10.674</td><td>Trắng</td><td>10.674</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Cam</td><td>12.790</td><td>Đen</td><td>12.753</td><td>Trắng</td><td>12.753</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Magic 10 Pro+</td><td>16/512</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>17.529</td><td>Trắng</td><td>17.529</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trong</td><td>18.240</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>24/1T</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Magic 10 Pro</td><td>12/256</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Magic Pad3 Pro</td><td>12/256</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>14.862</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>17.141</td><td>Đen</td><td>17.066</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>24/1T</td><td>Bạc</td><td>&nbsp;</td><td>Đen</td><td>21.872</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Magic Pad Pro</td><td>12/256</td><td>Bạc</td><td>14.308</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>24/1T</td><td>Bạc</td><td>&nbsp;</td><td>Trong</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Z70S Ultra</td><td>12/256</td><td>Đen</td><td>15.861</td><td>Vàng</td><td>15.824</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>19.431</td><td>Vàng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>17.342</td><td>Vàng</td><td>17.342</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>24/1T</td><td>Đen</td><td>&nbsp;</td><td>Vàng</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Z70 Ultra</td><td>12/256</td><td>Đen</td><td>13.127</td><td>Vàng</td><td>13.090</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>14.213</td><td>Vàng</td><td>14.063</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>24/1T</td><td>Đen</td><td>18.920</td><td>Vàng</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>LNV Pad Pro 12.7 2025</td><td>12/256</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Lenovo Pad 11</td><td>6/128</td><td>Xám</td><td>2.862</td><td>Xanh</td><td>2.862</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Xám</td><td>3.097</td><td>Xanh</td><td>3.097</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Xám</td><td>3.921</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Lenovo Pad 2024</td><td>6/128</td><td>Tím</td><td>2.778</td><td>Xám</td><td>2.629</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Tím</td><td>2.928</td><td>Xám</td><td>2.909</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Tím</td><td>3.658</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Lenovo Pad Y700 Gen 4</td><td>12/256</td><td>Đen</td><td>10.468</td><td>Trắng</td><td>10.468</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>&nbsp;</td><td>Trắng</td><td>14.158</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>11.929</td><td>Trắng</td><td>11.929</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Lenovo Pad Y700 2024</td><td>12/256</td><td>Đen</td><td>6.870</td><td>Trắng</td><td>6.870</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>8.256</td><td>Trắng</td><td>8.256</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Lenovo Pad Y700 2023</td><td>16/512</td><td>Xám</td><td>7.994</td><td>Xanh</td><td>7.994</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>1+PAD Pro</td><td>12/256</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>9.296</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/512</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>10.065</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/128</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Green</td><td>&nbsp;</td><td>Xám</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>1+PAD</td><td>12/256</td><td>Green</td><td>7.049</td><td>Xám</td><td>7.049</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Green</td><td>8.285</td><td>Xám</td><td>8.285</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/128</td><td>Green</td><td>5.419</td><td>Xám</td><td>5.419</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>8/256</td><td>Green</td><td>6.412</td><td>Xám</td><td>6.412</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>1+PAD 2 Pro</td><td>12/256</td><td>Bạc</td><td>11.967</td><td>Xanh</td><td>11.967</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Bạc</td><td>12.904</td><td>Xanh</td><td>12.941</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Bạc</td><td>13.598</td><td>Xanh</td><td>13.598</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>8/256</td><td>Bạc</td><td>&nbsp;</td><td>Xanh</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>Ace5 Plus</td><td>12/256</td><td>Đen</td><td>6.205</td><td>Green</td><td>6.205</td><td>Trắng</td><td>6.205</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>8.078</td><td>Green</td><td>8.078</td><td>Trắng</td><td>8.078</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Đen</td><td>7.403</td><td>Green</td><td>7.516</td><td>Trắng</td><td>7.403</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>8.714</td><td>Green</td><td>8.677</td><td>Trắng</td><td>8.714</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Ace5 Ultra</td><td>12/256</td><td>Blue</td><td>8.350</td><td>Đen</td><td>8.312</td><td>Titan</td><td>8.312</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Blue</td><td>9.925</td><td>Đen</td><td>9.888</td><td>Titan</td><td>9.700</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Blue</td><td>12.771</td><td>Đen</td><td>12.771</td><td>Titan</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Blue</td><td>9.286</td><td>Đen</td><td>9.286</td><td>Titan</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Blue</td><td>10.936</td><td>Đen</td><td>10.936</td><td>Titan</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>Ace5 Pro</td><td>12/256</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>10.719</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>12/512</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/1T</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>15.840</td>
+    </tr>
+    <tr style="background-color: #ffffff">
+    <td>&nbsp;</td><td>16/256</td><td>Đen</td><td>&nbsp;</td><td>Tím</td><td>&nbsp;</td><td>Trắng</td><td>&nbsp;</td>
+    </tr>
+    <tr style="background-color: #f0f0f0">
+    <td>&nbsp;</td><td>16/512</td><td>Đen</td><td>14.644</td><td>Tím</td><td>14.644</td><td>Trắng</td><td>14.194</td>
+    </tr>
+    </table>
+    </body>
+    </html>
+
+    `;
+    };
 
     const readSheetTable = (url) => {  
       return new Promise((resolve, reject) => {
@@ -48,7 +988,7 @@
     
     $(document).ready(async function(){ 
       let id = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
-      let gid = urlParams.get('gid'); //'1867759140';
+      let gid = urlParams.get('gid') || '1867759140'; //'1867759140';
       let range = 'A:H';
       let headers = 0
       let url = `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range}&headers=${headers}`;
@@ -58,38 +998,39 @@
 
       let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
       document.querySelector('div#col2').innerHTML = htmlTable2;
+
+      mergeCols();
     });
 
-    $(document).ready(function(){
+    function mergeCols(){
       let lastTd;
       let rowSpan = 1;
       $('table tr td:first-child').each((i, td) => {
-          let tr = $(td).closest('tr')[0]
-          let text = td.textContent;
-         if(text == '-') tr.classList.add('emptyRow');
-         if(text == '\u00a0'){
-             rowSpan += 1; lastTd.setAttribute('rowspan', rowSpan); $(td).hide();
-         } else{
-             rowSpan = 1; lastTd = td;
-         }
-      }); 
-    });
+        let tr = $(td).closest('tr')[0]
+        let text = td.textContent;
+        if(text == '-') tr.classList.add('emptyRow');
+        if(text == '\u00a0'){
+          rowSpan += 1; lastTd.setAttribute('rowspan', rowSpan); $(td).hide();
+        } else{
+          rowSpan = 1; lastTd = td;
+        }
+      });
 
-    $(document).ready(function(){
-      let lastTd;
-      let rowSpan = 1;
+      let lastTd2;
+      let rowSpan2 = 1;
       $('table tr td:nth-child(2)').each((i, td) => {
           let tr = $(td).closest('tr')[0]
           let text = td.textContent;
          if(text == '\u00a0'){
-             rowSpan += 1; lastTd.setAttribute('rowspan', rowSpan);
+             rowSpan2 += 1; lastTd2.setAttribute('rowspan', rowSpan2);
              $(td).hide();
          } else{
-             rowSpan = 1; lastTd = td;
+             rowSpan2 = 1; lastTd2 = td;
          }
       }); 
-      $('body').show();
-    });
+
+      $(document.body).show();
+    }
   })();
 </script>
 </html>
