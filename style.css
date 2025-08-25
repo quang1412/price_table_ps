@@ -1,12 +1,18 @@
 body{
 	font-size: 19px;
+	padding-top: 3em;
+	padding-bottom: 3em;
 }  
 
-div#main {display: flex;}
+div#main {
+	display: flex;
+}
 
 div#time {
+    font-size: 1.3em;
     font-weight: 600;
     margin-bottom: 1em;
+    padding: 0 1em;
 }
 
 div.col{
@@ -42,15 +48,13 @@ table tr:nth-child(-n+2) {
 table tr td {
 	background: white;
 	padding: .3em .5em;
-/* 	text-wrap: nowrap; */
 }
 
 table tr td:first-child{
-	font-size: 1.1em;
+	font-size: 1.3em;
 	max-width: 8em;
 	font-weight: 600;
 	text-align: center;
-	/* 	text-wrap: wrap; */
 	border-left-width: .2em;
 }
 
