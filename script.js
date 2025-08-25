@@ -57,8 +57,15 @@
            rowSpan2 += 1; lastTd2.setAttribute('rowspan', rowSpan2);
            $(td).hide();
        } else{
-           rowSpan2 = 1; lastTd2 = td;
+					 rowSpan2 = 1; lastTd2 = td;
        }
+    }); 
+		
+    $('table tr td').each((i, td) => {
+      	let text = td.textContent;
+				if(text !== '\u00a0'){
+					td.innerHTML = `<span>${text}</span>`;
+				} 
     }); 
 
     $(document.body).show();
