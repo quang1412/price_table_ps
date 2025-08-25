@@ -19,14 +19,16 @@
   $(document).ready(async function(){ 
     let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno'; 
     let gid = urlParams.get('gid')
-    let range = 'A:H';
     let headers = 0
+    let range = 'A:H';
     let url = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range}&headers=${headers}`;
 
     let htmlTable1 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
     document.querySelector('div#col1').innerHTML = htmlTable1;
 
-    let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
+    let range2 = 'A:H';
+    let url2 = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range2}&headers=${headers}`;
+    let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url2);
     document.querySelector('div#col2').innerHTML = htmlTable2;
 
     mergeCols();
