@@ -3,26 +3,30 @@ html{
 }
 
 body{
+	width: 1700px;
 	font-size: 22px;
 	font-weight: 500;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-}  
+	-
+	bottom: 3rem;
+	padding: 3rem 1rem;
+} 
+
+div#topBar {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	padding: 0 1rem;
+	display: flex;
+	justify-content: space-between
+}
 
 div#main {
 	display: flex;
 }
 
-div#time {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-}
-
 div.col{
 	padding: 1rem;
-	
+	flex-basis: 50%;
 }
 
 table { 
