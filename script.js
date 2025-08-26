@@ -29,11 +29,11 @@
     let gid = urlParams.get('gid') || 1074479198
     let headers = 0
    
-		let range = 'A:H';
+		let range = 'A2:H';
     let url = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range}&headers=${headers}`;
     let htmlTable1 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
 		
-    let range2 = 'J:Q';
+    let range2 = 'J2:Q';
     let url2 = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range2}&headers=${headers}`;
 		let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url2);
    
