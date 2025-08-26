@@ -18,7 +18,7 @@
 
   $(document).ready(async function() {
     let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
-    let gid = urlParams.get('gid')
+    let gid = urlParams.get('gid') | 1074479198
     let headers = 0
    
 		let range = 'A:H';
