@@ -20,6 +20,7 @@ div#topBar {
 }
 
 div#topBar #time{
+	padding-left:1rem;
 	margin-left: auto;
 }
 
