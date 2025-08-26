@@ -64,7 +64,7 @@
     $('table tr td').each((i, td) => {
       	let text = td.textContent;
 				if(text !== '\u00a0'){
-					td.innerHTML = `<span>${text}</span>`;
+					td.innerHTML = `<div>${text}</div>`;
 				} 
     }); 
 
