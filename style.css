@@ -16,7 +16,11 @@ div#topBar {
 	margin-bottom: 1rem;
 	padding: 0 1rem;
 	display: flex;
-	justify-content: space-between
+	justify-content: space-between;
+}
+
+div#topBar #time{
+	margin-left: auto;
 }
 
 div#main {
