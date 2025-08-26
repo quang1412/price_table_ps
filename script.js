@@ -16,7 +16,15 @@
     });
   }
 
+	const setTime = function(){
+		const today = new Date(); 
+		const formattedDateVN = today.toLocaleDateString('vi-VN');
+		console.log(formattedDateVN); 
+		$('div#time')?.text('Ngày: '+formattedDateVN);
+	
+	}
   $(document).ready(async function() {
+	setTime();
     let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
     let gid = urlParams.get('gid') || 1074479198
     let headers = 0
