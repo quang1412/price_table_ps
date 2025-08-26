@@ -3,10 +3,9 @@ html{
 }
 
 body{
-	width: 1700px;
+	width: fit-content;
 	font-size: 22px;
-	font-weight: 500;
-	-
+	font-weight: 500; 
 	bottom: 3rem;
 	padding: 3rem 1rem;
 } 
