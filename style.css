@@ -1,9 +1,9 @@
 html{
-	font-size: 16px;
+	font-size: 20px;
 }
 
 body{
-	font-size: 1rem;
+	font-size: 22px;
 	font-weight: 500;
 	padding-top: 3rem;
 	padding-bottom: 3rem;
@@ -35,12 +35,12 @@ table tr:nth-child(-n+2) {
 
 table tr td {
 	background: white;
-	padding: .2rem .4rem;
+	padding: 0.3rem 0.5rem;
 }
 
 table tr td:first-child{
 	font-size: 1.3rem;
-	max-width: 8em;
+	/* max-width: 8em; */
 	font-weight: 600;
 	text-align: center;
 }
@@ -75,7 +75,22 @@ table tr td:nth-child(7) {
     border-right: 0
 }
 
-table tr.emptyRow td{ 
+table tr.emptyRow td{
 	color:white;
 	border-bottom: .15rem solid #898989;
+	height: 1.6rem;
+}
+
+table tr td:nth-child(n+2) div{
+	text-wrap: nowrap;
+}
+
+table tr td:first-child div{
+	/* text-wrap: nowrap; */
+	width:9rem;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis; 
 }
