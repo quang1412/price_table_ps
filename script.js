@@ -68,6 +68,6 @@
 				} 
     }); 
 
-    $(document.body).show();
+   // $(document.body).show();
   }
 })();
