@@ -28,9 +28,12 @@ div#main {
 	display: flex;
 }
 
-div.col{
-	padding: 1rem;
-	flex-basis: 50%;
+div.col#col1{
+	padding-right: .5rem;
+}
+
+div.col#col2{
+	padding-left: .5rem;
 }
 
 table { 
