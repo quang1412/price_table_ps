@@ -11,11 +11,14 @@ body{
 } 
 
 div#topBar {
-	font-size: 1.3rem;
-	font-weight: 600;
 	margin-bottom: 1rem;
 	display: flex;
 	justify-content: space-between;
+}
+
+div#topBar div#title {
+    font-size: 1.3em;
+    font-weight: 600;
 }
 
 div#topBar #time{
