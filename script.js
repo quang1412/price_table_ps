@@ -84,5 +84,7 @@
 })();
 
 function darkModeSwitch(e){
-	$('body').toggleClass('darkMode', this.checked);
+	let isChecked = this.checked;
+	$('body').toggleClass('darkMode', isChecked);
+	window.localStorage.setItem('darkMode', isChecked);
 }
