@@ -10,10 +10,12 @@ body{
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	width: fit-content;
+	min-width: 600px;
 	font-size: 1rem;
 	font-weight: 500;
 	bottom: 3rem;
 	padding: 3rem 1rem;
+	transition: all 0.1s ease-in-out;
 }
 
 body.darkMode{
@@ -36,6 +38,10 @@ div#topBar div#title {
 
 div#topBar #time{
 	padding-left:1rem;
+	margin-left: auto;
+}
+
+div#toolsBar{
 	margin-left: auto;
 }
 
@@ -103,6 +109,11 @@ table tr td:nth-child(7) {
 table tr.emptyRow td{
 	color: var(--bg-color, white);
 	border-bottom: .1rem solid var(--border-color);
+	height: 1rem;
+}
+
+table tr.emptyRow td * {
+	display: none !important;
 }
 
 table tr td:nth-child(n+2) div{
