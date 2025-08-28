@@ -5,7 +5,7 @@ html{
 body{
 	width: fit-content;
 	font-size: 20px;
-	font-weight: 500; 
+	font-weight: 500;
 	bottom: 3rem;
 	padding: 3rem 1rem;
 } 
@@ -26,15 +26,16 @@ div#topBar #time{
 
 div#main {
 	display: flex;
+	justify-content: space-between;
 }
 
 div.col{
-	padding: 1rem;
-	flex-basis: 50%;
+	flex-basis: calc(50% - .5rem);
 }
 
-table { 
-	
+table {
+	table-layout: fixed;
+	width: 100%;
 }  
 
 table tr:nth-child(-n+2) {
@@ -48,7 +49,6 @@ table tr td {
 
 table tr td:first-child{
 	font-size: 1.3rem;
-	/* max-width: 8em; */
 	font-weight: 600;
 	text-align: center;
 }
@@ -68,6 +68,7 @@ table tr:not(.emptyRow) td{
 
 table tr:not(.emptyRow) td:first-child{
 	border-left: .15rem solid #898989;
+	width: 20%;
 }
 
 table tr td:nth-child(4),
@@ -94,7 +95,6 @@ table tr td:nth-child(n+2) div{
 }
 
 table tr td:first-child div{
-	/* text-wrap: nowrap; */
 	width:9rem;
 	overflow: hidden;
 	display: -webkit-box;
