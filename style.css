@@ -3,12 +3,25 @@ html{
 }
 
 body{
+	--bg-color: #fff;
+	--text-color: #121212;
+	--border-color: #121212;
+	--highlight-text: red;
+	background-color: var(--bg-color);
+	color: var(--text-color);
 	width: fit-content;
 	font-size: 1rem;
 	font-weight: 500;
 	bottom: 3rem;
 	padding: 3rem 1rem;
-} 
+}
+
+body.darkMode{
+	--bg-color: #121212;
+	--text-color: #E4E4E4;
+	--border-color: #E4E4E4;
+	--highlight-text: #FF6F61;
+}
 
 div#topBar {
 	margin-bottom: 1rem;
@@ -47,7 +60,6 @@ table tr:nth-child(-n+2) {
 }
 
 table tr td {
-	background: white;
 	padding: 0.3rem 0.3rem;
 }
 
@@ -58,27 +70,28 @@ table tr td:first-child{
 }
 
 table, tr, td{
-	border: 0
+	border: 0;
+	background: transparent !important;
 }
 
 table tr:not(.emptyRow):nth-child(3) td{
-	border-top: .15rem solid #898989;
+	border-top: .1rem solid var(--border-color);
 }
 
 table tr:not(.emptyRow) td{
-	border-bottom: .15rem solid #898989;
-	border-right: .15rem solid #898989;
+	border-bottom: .1rem solid var(--border-color);
+	border-right: .1rem solid var(--border-color);
 }
 
 table tr:not(.emptyRow) td:first-child{
-	border-left: .15rem solid #898989;
+	border-left: .1rem solid var(--border-color);
 }
 
 table tr td:nth-child(4),
 table tr td:nth-child(6),
 table tr td:nth-child(8) {
-	color: red;
-    border-left: 0;
+	color: var(--highlight-text);
+	border-left: 0;
 }
 
 table tr td:nth-child(3),
@@ -88,8 +101,8 @@ table tr td:nth-child(7) {
 }
 
 table tr.emptyRow td{
-	color:white;
-	border-bottom: .15rem solid #898989;
+	color: var(--bg-color, white);
+	border-bottom: .1rem solid var(--border-color);
 }
 
 table tr td:nth-child(n+2) div{
