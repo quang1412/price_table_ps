@@ -83,10 +83,9 @@
   } 
 })();
 
-window.localStorage.getItem('darkMode') == 'true' && $('input#darkMode[type="checkbox"]').click()
+window.localStorage.getItem('darkMode') && $('input#darkMode[type="checkbox"]').click()
 function darkModeSwitch(e){
 	let isChecked = e.checked;
-	$('body').toggleClass('darkMode', isChecked);
-	console.log(isChecked)
-	window.localStorage.setItem('darkMode', isChecked);
+	$('body').toggleClass('darkMode', isChecked); 
+	window.localStorage.setItem('darkMode', isChecked || '');
 }
