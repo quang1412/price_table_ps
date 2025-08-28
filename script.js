@@ -20,7 +20,7 @@
 		const today = new Date(); 
 		const formattedDateVN = today.toLocaleDateString('vi-VN');
 		console.log(formattedDateVN); 
-		$('div#time')?.text('Ngày: '+formattedDateVN);
+		$('span#date')?.text(formattedDateVN);
 	
 	}
   $(document).ready(async function() {
