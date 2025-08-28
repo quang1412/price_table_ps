@@ -83,8 +83,10 @@
   } 
 })();
 
+window.localStorage.getItem('darkMode') == 'true' && $('input#darkMode[type="checkbox"]').click()
 function darkModeSwitch(e){
-	let isChecked = this.checked;
+	let isChecked = e.checked;
 	$('body').toggleClass('darkMode', isChecked);
+	console.log(isChecked)
 	window.localStorage.setItem('darkMode', isChecked);
 }
