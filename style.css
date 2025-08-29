@@ -152,8 +152,8 @@ table tr td:first-child div{
 }
 
 .loader {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border: 5px solid;
   border-color: #FF3D00 transparent;
   border-radius: 50%;
