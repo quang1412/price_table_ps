@@ -114,7 +114,7 @@ table tr.emptyRow td{
 }
 
 table tr.emptyRow td * {
-	display: none !important;
+	visibility: hidden;
 }
 
 table tr td:nth-child(n+2) div{
