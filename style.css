@@ -139,7 +139,7 @@ table tr td:first-child div{
 
 
 .loader {
-  width: 50px;
+  width: 2rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(farthest-side, #ffa516 94%, #0000) top/8px 8px
