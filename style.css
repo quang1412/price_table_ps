@@ -14,8 +14,9 @@ body{
 	width: fit-content;
 	min-width: 600px;
 	font-size: 1rem;
-	font-weight: 500;
 	padding: 3rem 1rem;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 body.darkMode{
