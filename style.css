@@ -145,7 +145,7 @@ table tr td:first-child div{
   margin: auto;
   display: block;
   position: relative;
-  background: #FFF;
+  background: transparent;
   box-sizing: border-box;
 }
 .loader::after {
