@@ -1,91 +1,116 @@
 (function() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
 
-  const readSheetTable = (url) => {
-    return new Promise((resolve, reject) => {
-      window.fetch(url).then(r => {
-        if (!r.ok) {
-          throw new Error(`HTTP error! status: ${r.status}`);
+    const readSheetTable = (url) => {
+        return new Promise((resolve, reject) => {
+            window.fetch(url).then(r => {
+                if (!r.ok) {
+                    throw new Error(`HTTP error! status: ${r.status}`);
+                }
+                return r.text();
+            }).then(html => {
+                return resolve(html);
+            });
+        });
+    }
+
+    const groupByN = (n, arr) => {
+        const result = [];
+        for (let i = 0; i < arr.length; i += n) {
+            result.push(arr.slice(i, i + n));
         }
-        return r.text();
-      }).then(html => {
-        return resolve(html);
-      });
+        return result;
+    }
+
+    function csvToJson(csvString) {
+        const lines = csvString.trim().split('\n'); // Split into lines and remove leading/trailing whitespace
+        const headers = lines[0].split(','); // First line contains headers
+        const result = [];
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(','); // Split each subsequent line into values
+            const obj = {};
+            for (let j = 0; j < headers.length; j++) {
+                obj[headers[j].trim().replaceAll('"', '')] = values[j] ? values[j].trim().replaceAll('"', '') : '';
+            }
+            result.push(obj);
+        }
+        return result;
+    }
+
+    const setTime = function() {
+        const today = new Date();
+        const formattedDateVN = today.toLocaleDateString('vi-VN');
+        console.log(formattedDateVN);
+        $('span#date')?.text(formattedDateVN);
+
+    }
+
+    $(document).ready(async function() {
+        setTime();
+        let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
+        let gid = urlParams.get('gid') || 1285746717
+        let url = `https://docs.google.com/spreadsheets/d/1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno/gviz/tq?tqx=out:csv&tq&gid=${gid}&range=A:D&headers=1`;
+        const csvData = await readSheetTable(url)
+
+        let jsonData = csvToJson(csvData);
+        //console.log(jsonData);
+        let uniqueModel = Array.from(new Map(jsonData.map(item => [item["model"]])).keys());
+        //console.log(uniqueModel);
+        let modelGroup = groupByN((uniqueModel.length / 2), uniqueModel);
+
+        $('div#main div.col').each((h, col) => {
+            let table = $('<table>').attr({
+                "border": 1,
+                "cellpadding": 3,
+                "cellspacing": 0
+            });
+            $(col).html(null).append(table);
+            let models = modelGroup[h];
+            models.forEach((model, i) => {
+                // console.log(model);
+                let modelData = jsonData.filter(e => e.model == model);
+                let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys());
+                let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys());
+                let colorGroup = groupByN(3, uniqueColor);
+                // console.log(uniqueMem, colorGroup);
+
+                uniqueMem.forEach((mem, j) => {
+                    colorGroup.forEach((colors, k) => {
+                        let x = (!j && !k);
+                        x && table.append('<tr class="spacer">');
+
+                        let tr = $('<tr>');
+                        table.append(tr)
+
+
+                        let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
+                            'rowspan': !x ? 1 : (uniqueMem.length * colorGroup.length),
+                            'style': 'display:' + (!x ? 'none' : 'table-cell'),
+                        }).appendTo(tr);
+
+                        let td_2 = $('<td>').text(mem).attr({
+                            'rowspan': k ? 1 : colorGroup.length,
+                            'style': 'display:' + (k ? 'none' : 'table-cell'),
+                        }).appendTo(tr);
+
+                        for (var l = 0; l <= 2; l++) {
+                            let color = colors[l] || '';
+                            let price = !color ? '' : modelData.find(item => (item.mem == mem && item.color == color))?.price;
+                            $('<td>').text(color).appendTo(tr);
+                            $('<td>').text(price).appendTo(tr);
+                        }
+                    });
+                });
+            });
+        })
     });
-  }
-
-  const setTime = function() {
-    const today = new Date();
-    const formattedDateVN = today.toLocaleDateString('vi-VN');
-    console.log(formattedDateVN);
-    $('span#date')?.text(formattedDateVN);
-
-  }
-  $(document).ready(async function() {
-    setTime();
-    let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
-    let gid = urlParams.get('gid') || 1074479198
-    let headers = 0
-
-    let range = 'A2:H';
-    let url = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range}&headers=${headers}`;
-    let htmlTable1 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url);
-
-    let range2 = 'J2:Q';
-    let url2 = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:html&tq&gid=${gid}&range=${range2}&headers=${headers}`;
-    let htmlTable2 = window.location.protocol == 'file:' ? testdata() : await readSheetTable(url2);
-
-    document.querySelector('div#col1').innerHTML = htmlTable1;
-    document.querySelector('div#col2').innerHTML = htmlTable2;
-
-    mergeCols(); 
-  });
-
-  function mergeCols() {
-    let lastTd;
-    let rowSpan = 1;
-    $('table tr td:first-child').each((i, td) => {
-      let tr = $(td).closest('tr')[0]
-      let text = td.textContent;
-      if (text == '-') tr.classList.add('emptyRow');
-      if (text == '\u00a0') {
-        rowSpan += 1;
-        lastTd.setAttribute('rowspan', rowSpan);
-        $(td).hide();
-      } else {
-        rowSpan = 1;
-        lastTd = td;
-      }
-    });
-
-    let lastTd2;
-    let rowSpan2 = 1;
-    $('table tr td:nth-child(2)').each((i, td) => {
-      let tr = $(td).closest('tr')[0]
-      let text = td.textContent;
-      if (text == '\u00a0') {
-        rowSpan2 += 1;
-        lastTd2.setAttribute('rowspan', rowSpan2);
-        $(td).hide();
-      } else {
-        rowSpan2 = 1;
-        lastTd2 = td;
-      }
-    });
-
-    $('table tr td').each((i, td) => {
-      let text = td.textContent;
-      if (text !== '\u00a0') {
-        td.innerHTML = `<div>${text}</div>`;
-      }
-    }); 
-  } 
 })();
 
 window.localStorage.getItem('darkMode') && $('input#darkMode[type="checkbox"]').click()
-function darkModeSwitch(e){
-	let isChecked = e.checked;
-	$('body').toggleClass('darkMode', isChecked); 
-	window.localStorage.setItem('darkMode', isChecked || '');
+
+function darkModeSwitch(e) {
+    let isChecked = e.checked;
+    $('body').toggleClass('darkMode', isChecked);
+    window.localStorage.setItem('darkMode', isChecked || '');
 }
