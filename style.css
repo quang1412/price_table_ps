@@ -27,7 +27,6 @@ body.darkMode{
 }
 
 div#topBar {
-	margin-bottom: 1rem;
 	display: flex;
 	justify-content: space-between;
 }
@@ -56,79 +55,6 @@ div.col#col1{
 
 div.col#col2{
 	padding-left: .5rem;
-}
-
-table { 
-	
-}  
-
-table tr:nth-child(-n+2) {
-	display: none;
-}
-
-table tr td {
-	padding: 0.3rem 0.3rem;
-}
-
-table tr:not(.emptyRow) td:first-child{
-	font-size: 1.2em;
-	font-weight: 600;
-	text-align: center;
-}
-
-table, tr, td{
-	border: 0;
-	background: transparent !important;
-}
-
-table tr:not(.emptyRow):nth-child(3) td{
-	border-top: .1rem solid var(--border-color);
-}
-
-table tr:not(.emptyRow) td{
-	border-bottom: .1rem solid var(--border-color);
-	border-right: .1rem solid var(--border-color);
-}
-
-table tr:not(.emptyRow) td:first-child{
-	border-left: .1rem solid var(--border-color);
-}
-
-table tr td:nth-child(4),
-table tr td:nth-child(6),
-table tr td:nth-child(8) {
-	color: var(--highlight-text);
-	align-text: right;
-	border-left: 0;
-}
-
-table tr td:nth-child(3),
-table tr td:nth-child(5),
-table tr td:nth-child(7) {
-    border-right: 0
-}
-
-table tr.emptyRow td{
-	color: var(--bg-color, white);
-	border-bottom: .1rem solid var(--border-color);
-}
-
-table tr.emptyRow td * {
-	visibility: hidden;
-	height: 1rem;
-}
-
-table tr td:nth-child(n+2) div{
-	text-wrap: nowrap;
-}
-
-table tr td:first-child div{
-	width: 8rem;
-	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	text-overflow: ellipsis;
 }
 
 [type=checkbox], [type=radio] {
@@ -171,3 +97,53 @@ table tr td:first-child div{
     transform: rotate(360deg);
   }
 } 
+
+
+
+
+
+table, tr, td{
+	border-width: 0;
+	border-style: solid;
+	border-color: var(--border-color);
+}
+
+table tr td{
+	border-left-width: .1rem;
+	border-bottom-width: .1rem;
+	text-wrap: nowrap; 
+	padding: .3rem;
+}
+
+tr.spacer + tr td{
+	border-top-width: .1rem;
+}
+
+table tr td:nth-last-child(1),
+table tr td:nth-last-child(3),
+table tr td:nth-last-child(5){
+	color: var(--highlight-text);
+	border-left-width: 0;
+}
+
+table tr td:first-child div{
+	width: 8rem;
+	text-wrap: wrap;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: center;
+}
+
+table tr td:last-child{
+	border-right-width: .1rem;
+}
+
+tr.spacer{
+	height: 2rem;
+	border: 0;
+}
