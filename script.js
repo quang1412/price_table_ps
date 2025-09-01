@@ -62,27 +62,23 @@
         $('div#main div.col').each((h, col) => {
             let table = $('<table>').attr({
                 "border": 1,
-                "cellpadding": 3,
                 "cellspacing": 0
             });
             $(col).html(null).append(table);
             let models = modelGroup[h];
             models.forEach((model, i) => {
-                // console.log(model);
                 let modelData = jsonData.filter(e => e.model == model);
-                let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys());
-                let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys());
+                let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys()).sort();
+                let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
+
                 let colorGroup = groupByN(3, uniqueColor);
-                // console.log(uniqueMem, colorGroup);
 
                 uniqueMem.forEach((mem, j) => {
                     colorGroup.forEach((colors, k) => {
                         let x = (!j && !k);
                         x && table.append('<tr class="spacer">');
 
-                        let tr = $('<tr>');
-                        table.append(tr)
-
+                        let tr = $('<tr>').appendTo(table);
 
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
                             'rowspan': !x ? 1 : (uniqueMem.length * colorGroup.length),
