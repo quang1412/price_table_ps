@@ -50,14 +50,12 @@
         setTime();
         let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
         let gid = urlParams.get('gid') || 1285746717
-        let url = `https://docs.google.com/spreadsheets/d/1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno/gviz/tq?tqx=out:csv&tq&gid=${gid}&range=A:D&headers=1`;
-        const csvData = await readSheetTable(url)
+        let url = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:csv&tq&gid=${gid}&range=A:D&headers=1`;
+        let csvData = await readSheetTable(url)
 
         let jsonData = csvToJson(csvData);
-        //console.log(jsonData);
         let uniqueModel = Array.from(new Map(jsonData.map(item => [item["model"]])).keys());
-        //console.log(uniqueModel);
-        let modelGroup = groupByN((uniqueModel.length / 2), uniqueModel);
+        let modelGroup = groupByN(Math.ceil(uniqueModel.length / 1.8), uniqueModel);
 
         $('div#main div.col').each((h, col) => {
             let table = $('<table>').attr({
@@ -70,12 +68,13 @@
                 let modelData = jsonData.filter(e => e.model == model);
                 let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys()).sort();
                 let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
-
                 let colorGroup = groupByN(3, uniqueColor);
                 
                 table.append('<tr data-model="'+model+'" class="spacer">');
 
                 uniqueMem.forEach((mem, j) => {
+                    let memData = modelData.filter(obj => obj.mem == mem);
+
                     colorGroup.forEach((colors, k) => {
                         let x = (!j && !k);
 
@@ -93,7 +92,7 @@
 
                         for (var l = 0; l <= 2; l++) {
                             let color = colors[l] || '';
-                            let price = !color ? '' : modelData.find(item => (item.mem == mem && item.color == color))?.price;
+                            let price = !color ? '' : memData.find(item => (item.mem == mem && item.color == color))?.price;
                             $('<td>').text(color).appendTo(tr);
                             $('<td>').text(price).appendTo(tr);
                         }
