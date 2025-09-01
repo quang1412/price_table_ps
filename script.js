@@ -72,13 +72,14 @@
                 let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
 
                 let colorGroup = groupByN(3, uniqueColor);
+                
+                table.append('<tr data-model="'+model+'" class="spacer">');
 
                 uniqueMem.forEach((mem, j) => {
                     colorGroup.forEach((colors, k) => {
                         let x = (!j && !k);
-                        x && table.append('<tr class="spacer">');
 
-                        let tr = $('<tr>').appendTo(table);
+                        let tr = $('<tr>').attr('data-model', model).appendTo(table);
 
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
                             'rowspan': !x ? 1 : (uniqueMem.length * colorGroup.length),
