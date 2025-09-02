@@ -99,7 +99,12 @@
                         let x = (!j && !k);
 
                         let tr = $('<tr>').attr('data-model', model).appendTo(table);
-
+                        tr.mouseover(_ => {
+                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).show()
+                        }).mouseout(_ => {
+                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).hide()
+                        })
+                        
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
                             'rowspan': !x ? 1 : (uniqueMem.length * colorGroup.length),
                             'style': 'display:' + (!x ? 'none' : 'table-cell'),
