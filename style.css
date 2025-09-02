@@ -153,20 +153,22 @@ table tr td:first-child{
 }
 
 table tr td i.fa-star{
+	transition: all 0.3s ease-in-out;
 	font-size: 90%;
 	text-align: left;
 	position: absolute;
-	top: .1rem;
+	top: 50%;
 	left: .1rem;
 	background-color: var(--bg-color);
 	cursor: pointer;
-	display:none;
+	opacity: 0;
 }
 
-tr:hover td i.fa-star,
+tr td:first-child i.fa-star.show,
 tr td:first-child i.fa-star.active
 {
-	display: block;
+	opacity: 1;
+	top: .1rem;
 }
 
 table tr td:first-child i.active{
