@@ -157,7 +157,7 @@ table tr td i.fa-star{
 	font-size: 1rem;
 	text-align: left;
 	position: absolute;
-	top: 50%;
+	top: min(50%, 3rem);
 	left: .1rem;
 	background-color: var(--bg-color);
 	cursor: pointer;
