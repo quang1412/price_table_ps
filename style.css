@@ -154,7 +154,7 @@ table tr td:first-child{
 
 table tr td i.fa-star{
 	transition: all 0.3s ease-in-out;
-	font-size: 90%;
+	font-size: 1rem;
 	text-align: left;
 	position: absolute;
 	top: 50%;
