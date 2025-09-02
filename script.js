@@ -100,9 +100,9 @@
 
                         let tr = $('<tr>').attr('data-model', model).appendTo(table);
                         tr.mouseover(_ => {
-                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).show()
+                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).addClass('show');
                         }).mouseout(_ => {
-                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).hide()
+                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).removeClass('show');
                         })
                         
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
