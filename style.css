@@ -147,3 +147,28 @@ tr.spacer{
 	height: 2rem;
 	border: 0;
 }
+
+table tr td:first-child{
+	position: relative;
+}
+
+table tr td i.fa-star{
+	font-size: 90%;
+	text-align: left;
+	position: absolute;
+	top: -.5rem;
+	left: -.5rem;
+	background-color: var(--bg-color);
+	cursor: pointer;
+	display:none;
+}
+
+tr td:hover i.fa-star,
+tr td:first-child i.fa-star.active
+{
+	display: block;
+}
+
+table tr td:first-child i.active{
+	color: var(--highlight-text);
+}
