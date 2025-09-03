@@ -171,6 +171,7 @@ tr td:first-child i.fa-star.active
 	top: .1rem;
 }
 
-table tr td:first-child i.active{
+table tr td:first-child i.active,
+table tr td:first-child i:hover{
 	color: var(--highlight-text);
 }
