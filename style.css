@@ -166,13 +166,12 @@ table tr td i.fa-star{
 	opacity: 0;
 }
 
-tr.isHover td:first-child i.fa-star,
-tr.star td:first-child i.fa-star
+tr.isHover td i.fa-star,
+tr.star td i.fa-star
 {
 	opacity: 1;
 }
 
-table tr td:first-child i.active,
-table tr td:first-child i:hover{
+table tr.star td i.fa-star{
 	color: var(--highlight-text);
 }
