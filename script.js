@@ -1,7 +1,22 @@
-(function() {
+(async function() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
+    let Config_ = JSON.parse(localStorage.getItem('Config') || '{}');
+
+    const CONFIG = {
+        name: 'config',
+        get: async function(k){
+            let data = JSON.parse( await localStorage.getItem(this.name) || '{}' );
+            return data[k];
+        },
+        set: async function(k, v){
+            let data = JSON.parse( localStorage.getItem(this.name) || '{}' );
+            data[k] = v;
+            await localStorage.setItem(this.name, JSON.stringify(data));
+        }
+    }
+    
     const readSheetTable = (url) => {
         return new Promise((resolve, reject) => {
             window.fetch(url).then(r => {
@@ -46,23 +61,22 @@
 
     }
 
-    let starModels = JSON.parse(window.localStorage.getItem('starModels') || '[]');
+    let starModels = await CONFIG.get('starModels') || [];
     const starToggle = function(e){
         let star = $(e.target);
-        let model = star.closest('[data-model]').attr('data-model');
-        star.toggleClass("fa-solid fa-regular");
+        let model = star.attr('data-model');
+        // star.toggleClass("fa-solid fa-regular");
         star.toggleClass("active");
 
-        let table = star.closest('table');
+        $(`tr[data-model="${model}"]`).toggleClass('star');
+        
         if(star.hasClass('active')){
-            // table.prepend($(`tr[data-model="${model}"]`));
             starModels.push(model);
         } else {
-            // table.append($(`tr[data-model="${model}"]`));
             starModels = starModels.filter(i => i !== model);
         }
         starModels = [...new Set(starModels)];
-        window.localStorage.setItem('starModels', JSON.stringify(starModels));
+        CONFIG.set('starModels', starModels);
     }
     
     $(document).ready(async function() {
@@ -89,28 +103,25 @@
                 let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys()).sort();
                 let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
                 let colorGroup = groupByN(3, uniqueColor);
-                
+                let modelRowspan = (uniqueMem.length * colorGroup.length)
                 table.append('<tr data-model="'+model+'" class="spacer">');
 
                 uniqueMem.forEach((mem, j) => {
                     let memData = modelData.filter(obj => obj.mem == mem);
-
                     colorGroup.forEach((colors, k) => {
                         let x = (!j && !k);
 
                         let tr = $('<tr>').attr('data-model', model).appendTo(table);
-                        tr.mouseover(_ => {
-                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).addClass('show');
-                        }).mouseout(_ => {
-                            $(`tr[data-model="${model}"] td i.fa-star:not(.active)`).removeClass('show');
-                        })
+                        tr.on('mouseover mouseout', _ => {
+                            $(`tr[data-model="${model}"]`).toggleClass('isHover');
+                        });
                         
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
-                            'rowspan': !x ? 1 : (uniqueMem.length * colorGroup.length),
-                            'style': 'display:' + (!x ? 'none' : 'table-cell'),
+                            'rowspan': !x ? 1 : modelRowspan,
                         }).appendTo(tr);
+                        !x && td_1.hide();
 
-                        x && $('<i class="fa-regular fa-star"></i>').click(starToggle).appendTo(td_1);
+                        x && $(`<i class="fa-solid fa-star" data-model="${model}">`).click(starToggle).appendTo(td_1);
 
                         let td_2 = $('<td>').text(mem).attr({
                             'rowspan': k ? 1 : colorGroup.length,
@@ -129,13 +140,18 @@
         });
 
         starModels.forEach((model, i) => $(`tr[data-model="${model}"] i:not(.active)`)?.click() )
-    }); 
-})();
+    });
 
-window.localStorage.getItem('darkMode') && $('input#darkMode[type="checkbox"]').click()
-
-function darkModeSwitch(e) {
-    let isChecked = e.checked;
-    $('body').toggleClass('darkMode', isChecked);
-    window.localStorage.setItem('darkMode', isChecked || '');
-}
+    let darkModeSwitcher = $('input#darkMode[type="checkbox"]');
+    darkModeSwitcher.change(darkModeSwitch);
+    
+    let on = await CONFIG.get('darkMode');
+    darkModeSwitcher.prop('checked', on == true);
+    
+    function darkModeSwitch(e) {
+        let isChecked = this.checked;
+        console.log(isChecked)
+        $('body').toggleClass('darkMode', isChecked);
+        CONFIG.set('darkMode', isChecked);
+    }
+})()
