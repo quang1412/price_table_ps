@@ -144,10 +144,8 @@
 
     let darkModeSwitcher = $('input#darkMode[type="checkbox"]');
     darkModeSwitcher.change(darkModeSwitch);
-    
-    let on = await CONFIG.get('darkMode');
-    darkModeSwitcher.prop('checked', on == true);
-    
+    var on = await CONFIG.get('darkMode');
+    darkModeSwitcher.prop('checked', on == true).trigger('change');
     function darkModeSwitch(e) {
         let isChecked = this.checked;
         console.log(isChecked)
