@@ -88,7 +88,7 @@
 
         let jsonData = csvToJson(csvData);
         if(!jsonData.length) {
-            $('body').html('<h3><strong>Error!!!</strong></h3>');
+            $('body').html('<h3 style="text-align:center;"><strong>⚠️ Error!!!</strong></h3>');
             return false;
         }
         let uniqueModel = Array.from(new Map(jsonData.map(item => [item["model"]])).keys());
