@@ -9,6 +9,7 @@ body{
 	--text-color: #121212;
 	--border-color: #888888;
 	--highlight-text: red;
+	--highlight-text-star: royalblue;
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	width: fit-content;
@@ -24,6 +25,7 @@ body.darkMode{
 	--text-color: #E4E4E4;
 	--border-color: #888888;
 	--highlight-text: #FF6F61;
+	--highlight-text-star: yellow;
 }
 
 div#topBar {
@@ -174,4 +176,7 @@ tr.star td i.fa-star
 
 table tr.star td i.fa-star{
 	color: var(--highlight-text);
+}
+table tr.star td{
+    --highlight-text: var(--highlight-text-star);
 }

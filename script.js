@@ -82,11 +82,15 @@
     $(document).ready(async function() {
         setTime();
         let sid = '1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno';
-        let gid = urlParams.get('gid') || 1285746717
+        let gid = urlParams.get('gid');
         let url = `https://docs.google.com/spreadsheets/d/${sid}/gviz/tq?tqx=out:csv&tq&gid=${gid}&range=A:D&headers=1`;
         let csvData = await readSheetTable(url)
 
         let jsonData = csvToJson(csvData);
+        if(!jsonData.length) {
+            $('body').html('<h3 style="text-align:center;"><strong>⚠️ Error!!!</strong></h3>');
+            return false;
+        }
         let uniqueModel = Array.from(new Map(jsonData.map(item => [item["model"]])).keys());
         let modelGroup = groupByN(Math.ceil(uniqueModel.length / 1.8), uniqueModel);
 
