@@ -9,6 +9,7 @@ body{
 	--text-color: #121212;
 	--border-color: #888888;
 	--highlight-text: red;
+	--highlight-text-star: royalblue;
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	width: fit-content;
@@ -24,6 +25,7 @@ body.darkMode{
 	--text-color: #E4E4E4;
 	--border-color: #888888;
 	--highlight-text: #FF6F61;
+	--highlight-text-star: yellow;
 }
 
 div#topBar {
@@ -153,7 +155,7 @@ table tr td:first-child{
 }
 
 table tr td i.fa-star{
-	text-shadow: 0.2rem 0rem 0.4rem var(--border-color);
+	text-shadow: .1rem .1px var(--border-color);
 	transition: all 0.3s ease-in-out;
 	font-size: 1.3rem;
 	text-align: left;
@@ -174,4 +176,7 @@ tr.star td i.fa-star
 
 table tr.star td i.fa-star{
 	color: var(--highlight-text);
+}
+table tr.star td{
+    --highlight-text: var(--highlight-text-star);
 }
