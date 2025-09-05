@@ -87,6 +87,10 @@
         let csvData = await readSheetTable(url)
 
         let jsonData = csvToJson(csvData);
+        if(!jsonData.length) {
+            $('body').html('<h3><strong>Error!!!</strong></h3>');
+            return false;
+        }
         let uniqueModel = Array.from(new Map(jsonData.map(item => [item["model"]])).keys());
         let modelGroup = groupByN(Math.ceil(uniqueModel.length / 1.8), uniqueModel);
 
