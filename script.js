@@ -78,8 +78,7 @@
     let starModels = await CONFIG.get('starModels') || [];
     const starToggle = function(e){
         let star = $(e.target);
-        let model = star.attr('data-model');
-        // star.toggleClass("fa-solid fa-regular");
+        let model = star.attr('data-model'); 
         star.toggleClass("active");
 
         $(`tr[data-model="${model}"]`).toggleClass('star');
@@ -91,6 +90,7 @@
         }
         starModels = [...new Set(starModels)];
         CONFIG.set('starModels', starModels);
+        Logger('starModels', `${window.uid}; ${starModels.join(" / ")}`);
     }
 
     $(document).ready(async function () {
@@ -136,6 +136,7 @@
                         let x = (!j && !k);
 
                         let tr = $('<tr>').attr('data-model', model).appendTo(table);
+                        !!~starModels.indexOf(model) && tr.addClass('star');
                         tr.on('mouseover mouseout', _ => {
                             $(`tr[data-model="${model}"]`).toggleClass('isHover');
                         });
@@ -162,30 +163,22 @@
                 });
             });
         });
-
-        starModels.forEach((model, i) => $(`tr[data-model="${model}"] i:not(.active)`)?.click() )
     });
 
-    let darkModeSwitcher = $('input#darkMode[type="checkbox"]');
-    darkModeSwitcher.change(darkModeSwitch);
+    let darkModeSw = $('input#darkMode[type="checkbox"]'); 
     var on = await CONFIG.get('darkMode');
-    darkModeSwitcher.prop('checked', on == true).trigger('change');
-    function darkModeSwitch(e) {
+    darkModeSw.prop('checked', on == true);
+    on && $(document.body).addClass('darkMode'); 
+    darkModeSw.change(function(){
         let isChecked = this.checked;
         console.log(isChecked)
         $('body').toggleClass('darkMode', isChecked);
         CONFIG.set('darkMode', isChecked);
-    }
+    });
 
     $(document).ready(async function () {
         let data = await $.getJSON("https://jsonip.com/?callback=?");
         window.ip = data.ip;
-        // Logger('page-access', `${window.uid}; ${data.ip}`);
-    });
-
-    $(window).on('beforeunload', async function() {
-        // let data = await $.getJSON("https://jsonip.com/?callback=?");
-        // window.ip = data.ip;
-        Logger('page-access', `${window.uid}; ${window.ip}; ${starModels.join(', ')}`);
-    });
+        Logger('pageLoad', `${window.uid}; ${window.ip}`);
+    }); 
 })();
