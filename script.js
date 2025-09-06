@@ -1,14 +1,24 @@
 (async function() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwyjbwXPxmqpZ7ctUpaw2Lh0uWVVgFg-yG85owKKe-uyM9A9I1zxYtU90EOXmHGPbkD/exec';
+    //let Config_ = JSON.parse(localStorage.getItem('Config') || '{}');
 
-    let Config_ = JSON.parse(localStorage.getItem('Config') || '{}');
-
+    function generateRandomString(length = 10) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+    
     const CONFIG = {
         name: 'config',
-        get: async function(k){
+        get: async function(k, ifnull){
             let data = JSON.parse( await localStorage.getItem(this.name) || '{}' );
-            return data[k];
+            return (data[k] || ifnull);
         },
         set: async function(k, v){
             let data = JSON.parse( localStorage.getItem(this.name) || '{}' );
@@ -16,7 +26,11 @@
             await localStorage.setItem(this.name, JSON.stringify(data));
         }
     }
-    
+
+    const Logger = function(name, message){
+        $.post(apiUrl, JSON.stringify({name, message}), function(data, status){});
+    }
+
     const readSheetTable = (url) => {
         return new Promise((resolve, reject) => {
             window.fetch(url).then(r => {
@@ -78,6 +92,12 @@
         starModels = [...new Set(starModels)];
         CONFIG.set('starModels', starModels);
     }
+
+    $(document).ready(async function () {
+        window.uid = await CONFIG.get('uid');
+        console.log(window.uid);
+        if(!window.uid){ window.uid = generateRandomString(); CONFIG.set('uid', window.uid); }
+    });
     
     $(document).ready(async function() {
         setTime();
@@ -156,4 +176,16 @@
         $('body').toggleClass('darkMode', isChecked);
         CONFIG.set('darkMode', isChecked);
     }
-})()
+
+    $(document).ready(async function () {
+        let data = await $.getJSON("https://jsonip.com/?callback=?");
+        window.ip = data.ip;
+        // Logger('page-access', `${window.uid}; ${data.ip}`);
+    });
+
+    $(window).on('beforeunload', async function() {
+        // let data = await $.getJSON("https://jsonip.com/?callback=?");
+        // window.ip = data.ip;
+        Logger('page-access', `${window.uid}; ${window.ip}`);
+    });
+})();
