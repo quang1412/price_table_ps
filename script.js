@@ -186,6 +186,6 @@
     $(window).on('beforeunload', async function() {
         // let data = await $.getJSON("https://jsonip.com/?callback=?");
         // window.ip = data.ip;
-        Logger('page-access', `${window.uid}; ${window.ip}`);
+        Logger('page-access', `${window.uid}; ${window.ip}; ${starModels.join(', ')}`);
     });
 })();
