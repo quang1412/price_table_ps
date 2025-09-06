@@ -70,7 +70,7 @@
     const setTime = function() {
         const today = new Date();
         const formattedDateVN = today.toLocaleDateString('vi-VN');
-        console.log(formattedDateVN);
+        console.log('date:', formattedDateVN);
         $('span#date')?.text(formattedDateVN);
 
     }
@@ -95,8 +95,11 @@
 
     $(document).ready(async function () {
         window.uid = await CONFIG.get('uid');
-        console.log(window.uid);
-        if(!window.uid){ window.uid = generateRandomString(); CONFIG.set('uid', window.uid); }
+        if(!window.uid){
+            window.uid = generateRandomString(); 
+            CONFIG.set('uid', window.uid); 
+        }
+        console.log('uid:', window.uid);
     });
     
     $(document).ready(async function() {
@@ -180,5 +183,6 @@
         let data = await $.getJSON("https://jsonip.com/?callback=?");
         window.ip = data.ip;
         Logger('pageLoad', `${window.uid}; ${window.ip}`);
+        console.log('ip:', window.ip);
     }); 
 })();
