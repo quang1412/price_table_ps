@@ -15,15 +15,15 @@
     }
 
     const CONFIG = {
-        name: 'config',
+        key: 'config',
         get: async function(k, ifnull){
-            let data = JSON.parse( await localStorage.getItem(this.name) || '{}' );
+            let data = JSON.parse( await localStorage.getItem(this.key) || '{}' );
             return (data[k] || ifnull);
         },
         set: async function(k, v){
-            let data = JSON.parse( localStorage.getItem(this.name) || '{}' );
+            let data = JSON.parse( localStorage.getItem(this.key) || '{}' );
             data[k] = v;
-            await localStorage.setItem(this.name, JSON.stringify(data));
+            await localStorage.setItem(this.key, JSON.stringify(data));
         }
     }
 
@@ -81,7 +81,12 @@
 
     }
 
-    let starModels = await CONFIG.get('starModels') || ["Mi 15 Ultra"];
+    let starModels = await CONFIG.get('starModels', []);
+    
+    ///// DELETE /// DELETE /// DELETE //////
+    starModels.push('X200 Pro Mini', 'Mi 15');
+    ///// DELETE /// DELETE /// DELETE //////
+    
     const starToggle = function(m){
         let tr = $(`tr[data-model="${m}"]`);
         if(!~starModels.indexOf(m)){
