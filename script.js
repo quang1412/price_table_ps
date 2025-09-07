@@ -2,9 +2,8 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const apiUrl = 'https://script.google.com/macros/s/AKfycbwyjbwXPxmqpZ7ctUpaw2Lh0uWVVgFg-yG85owKKe-uyM9A9I1zxYtU90EOXmHGPbkD/exec';
-    //let Config_ = JSON.parse(localStorage.getItem('Config') || '{}');
 
-    function genID(length = 10) {
+    const genID = function(length = 10) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
         const charactersLength = characters.length;
@@ -58,7 +57,7 @@
         return result;
     }
 
-    function csvToJson(csvString) {
+    const csvToJson = function(csvString) {
         const lines = csvString.trim().split('\n'); // Split into lines and remove leading/trailing whitespace
         const headers = lines[0].split(','); // First line contains headers
         const result = [];
@@ -72,7 +71,7 @@
         }
         return result;
     }
-
+ 
     const setTime = function() {
         const today = new Date();
         const formattedDateVN = today.toLocaleDateString('vi-VN');
