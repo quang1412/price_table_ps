@@ -84,11 +84,12 @@
     let starModels = await CONFIG.get('starModels', []);
     
     ///// DELETE /// DELETE /// DELETE //////
-    starModels.push('X200 Pro Mini', 'Mi 15');
+    !~starModels.indexOf("changed") && starModels.push('X200 Pro Mini', 'Mi 15');
     ///// DELETE /// DELETE /// DELETE //////
     
     const starToggle = function(m){
         let tr = $(`tr[data-model="${m}"]`);
+         
         if(!~starModels.indexOf(m)){
             tr.addClass('star');
             starModels.push(m);
@@ -96,6 +97,11 @@
             tr.removeClass('star');
             starModels = starModels.filter(i => (i != m));
         }
+        
+        ///// DELETE /// DELETE /// DELETE //////
+        starModels.push("changed");
+        ///// DELETE /// DELETE /// DELETE //////
+        
         starModels = [...new Set(starModels)];
         CONFIG.set('starModels', starModels);
         Logger('starModels', `${window.uid}; ${starModels.join(" / ")}`);
