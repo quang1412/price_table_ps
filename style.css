@@ -178,5 +178,6 @@ table tr.star td i.fa-star{
 	color: var(--highlight-text);
 }
 table tr.star td{
+	font-weight: 600;
     --highlight-text: var(--highlight-text-star);
 }

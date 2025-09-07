@@ -4,7 +4,7 @@
     const apiUrl = 'https://script.google.com/macros/s/AKfycbwyjbwXPxmqpZ7ctUpaw2Lh0uWVVgFg-yG85owKKe-uyM9A9I1zxYtU90EOXmHGPbkD/exec';
     //let Config_ = JSON.parse(localStorage.getItem('Config') || '{}');
 
-    function generateRandomString(length = 10) {
+    function genID(length = 10) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
         const charactersLength = characters.length;
@@ -13,20 +13,26 @@
         }
         return result;
     }
-    
+
     const CONFIG = {
-        name: 'config',
+        key: 'config',
         get: async function(k, ifnull){
-            let data = JSON.parse( await localStorage.getItem(this.name) || '{}' );
+            let data = JSON.parse( await localStorage.getItem(this.key) || '{}' );
             return (data[k] || ifnull);
         },
         set: async function(k, v){
-            let data = JSON.parse( localStorage.getItem(this.name) || '{}' );
+            let data = JSON.parse( localStorage.getItem(this.key) || '{}' );
             data[k] = v;
-            await localStorage.setItem(this.name, JSON.stringify(data));
+            await localStorage.setItem(this.key, JSON.stringify(data));
         }
     }
 
+    const Delay = function(t = 1000){
+        return new Promise(resolve => {
+            setTimeout(resolve, t);
+        })
+    }
+    
     const Logger = function(name, message){
         $.post(apiUrl, JSON.stringify({name, message}), function(data, status){});
     }
@@ -75,18 +81,20 @@
 
     }
 
-    let starModels = await CONFIG.get('starModels') || [];
-    const starToggle = function(e){
-        let star = $(e.target);
-        let model = star.attr('data-model'); 
-        star.toggleClass("active");
-
-        $(`tr[data-model="${model}"]`).toggleClass('star');
-        
-        if(star.hasClass('active')){
-            starModels.push(model);
+    let starModels = await CONFIG.get('starModels', []);
+    
+    ///// DELETE /// DELETE /// DELETE //////
+    starModels.push('X200 Pro Mini', 'Mi 15');
+    ///// DELETE /// DELETE /// DELETE //////
+    
+    const starToggle = function(m){
+        let tr = $(`tr[data-model="${m}"]`);
+        if(!~starModels.indexOf(m)){
+            tr.addClass('star');
+            starModels.push(m);
         } else {
-            starModels = starModels.filter(i => i !== model);
+            tr.removeClass('star');
+            starModels = starModels.filter(i => (i != m));
         }
         starModels = [...new Set(starModels)];
         CONFIG.set('starModels', starModels);
@@ -96,8 +104,8 @@
     $(document).ready(async function () {
         window.uid = await CONFIG.get('uid');
         if(!window.uid){
-            window.uid = generateRandomString(); 
-            CONFIG.set('uid', window.uid); 
+            window.uid = genID(); 
+            CONFIG.set('uid', window.uid);
         }
         console.log('uid:', window.uid);
     });
@@ -130,7 +138,6 @@
                 let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys()).sort();
                 let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
                 let colorGroup = groupByN(3, uniqueColor);
-                let modelRowspan = (uniqueMem.length * colorGroup.length)
                 table.append('<tr data-model="'+model+'" class="spacer">');
 
                 uniqueMem.forEach((mem, j) => {
@@ -145,11 +152,11 @@
                         });
                         
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
-                            'rowspan': !x ? 1 : modelRowspan,
+                            'rowspan': (!x ? 1 : (uniqueMem.length * colorGroup.length)),
                         }).appendTo(tr);
                         !x && td_1.hide();
 
-                        x && $(`<i class="fa-solid fa-star" data-model="${model}">`).click(starToggle).appendTo(td_1);
+                        x && $(`<i class="fa-solid fa-star">`).click(() => starToggle(model)).appendTo(td_1);
 
                         let td_2 = $('<td>').text(mem).attr({
                             'rowspan': k ? 1 : colorGroup.length,
@@ -166,19 +173,22 @@
                 });
             });
         });
+    }); 
+    
+    $(document).ready(async function () {
+        let darkModeSw = $('input#darkMode[type="checkbox"]'); 
+        let on = await CONFIG.get('darkMode');
+        
+        darkModeSw.prop('checked', on == true);
+        on && $(document.body).addClass('darkMode'); 
+        
+        darkModeSw.change(function(){
+            let isChecked = this.checked;
+            $('body').toggleClass('darkMode', isChecked);
+            CONFIG.set('darkMode', isChecked);
+        });
     });
-
-    let darkModeSw = $('input#darkMode[type="checkbox"]'); 
-    var on = await CONFIG.get('darkMode');
-    darkModeSw.prop('checked', on == true);
-    on && $(document.body).addClass('darkMode'); 
-    darkModeSw.change(function(){
-        let isChecked = this.checked;
-        console.log(isChecked)
-        $('body').toggleClass('darkMode', isChecked);
-        CONFIG.set('darkMode', isChecked);
-    });
-
+ 
     $(document).ready(async function () {
         let data = await $.getJSON("https://jsonip.com/?callback=?");
         window.ip = data.ip;
