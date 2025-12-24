@@ -106,6 +106,11 @@
         Logger('starModels', `${window.uid}; ${starModels.join(" / ")}`);
     }
 
+    // const memOrder = ['6/128', '8/128', '8/256', '12/256', '12/512', '16/256', '16/512', '16/1T', '24/1T', ]
+    const memOrder = await fetch('https://docs.google.com/spreadsheets/d/1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno/gviz/tq?tqx=out:csv&tq&gid=1074479198&range=A1:A50&headers=0')
+        .then(resp => resp.text()).then(text => text?.replaceAll(`"`, '').split(/\r?\n|\r/));
+    console.log(memOrder)
+
     $(document).ready(async function () {
         window.uid = await CONFIG.get('uid');
         if(!window.uid){
@@ -140,12 +145,22 @@
             let models = modelGroup[h];
             models.forEach((model, i) => {
                 let modelData = jsonData.filter(e => e.model == model);
-                let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys()).sort();
+                let uniqueMem = Array.from(new Map(modelData.map(item => [item["mem"]])).keys());
+
+                let memSortedList = uniqueMem.sort((a, b) => {
+                  // Find the position of 'a' and 'b' in the ordering array
+                  const indexA = memOrder.indexOf(a);
+                  const indexB = memOrder.indexOf(b);
+                
+                  // The sort is based on the numerical difference of their indices
+                  return indexA - indexB;
+                });
+                
                 let uniqueColor = Array.from(new Map(modelData.map(item => [item["color"]])).keys()).sort((a, b) => a.localeCompare(b))
                 let colorGroup = groupByN(3, uniqueColor);
                 table.append('<tr data-model="'+model+'" class="spacer">');
 
-                uniqueMem.forEach((mem, j) => {
+                memSortedList.forEach((mem, j) => {
                     let memData = modelData.filter(obj => obj.mem == mem);
                     colorGroup.forEach((colors, k) => {
                         let x = (!j && !k);
