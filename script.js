@@ -81,35 +81,22 @@
     }
 
     let starModels = await CONFIG.get('starModels', []);
-    
-    ///// DELETE /// DELETE /// DELETE //////
-    !~starModels.indexOf("changed") && starModels.push('X200 Pro Mini', 'Mi 15');
-    ///// DELETE /// DELETE /// DELETE //////
-    
-    const starToggle = function(m){
-        let tr = $(`tr[data-model="${m}"]`);
-         
-        if(!~starModels.indexOf(m)){
-            tr.addClass('star');
-            starModels.push(m);
-        } else {
-            tr.removeClass('star');
-            starModels = starModels.filter(i => (i != m));
-        }
-        
-        ///// DELETE /// DELETE /// DELETE //////
-        starModels.push("changed");
-        ///// DELETE /// DELETE /// DELETE //////
-        
-        starModels = [...new Set(starModels)];
-        CONFIG.set('starModels', starModels);
-        Logger('starModels', `${window.uid}; ${starModels.join(" / ")}`);
-    }
+ 
 
     // const memOrder = ['6/128', '8/128', '8/256', '12/256', '12/512', '16/256', '16/512', '16/1T', '24/1T', ]
     const memOrder = await fetch('https://docs.google.com/spreadsheets/d/1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno/gviz/tq?tqx=out:csv&tq&gid=1074479198&range=A1:A50&headers=0')
         .then(resp => resp.text()).then(text => text?.replaceAll(`"`, '').split(/\r?\n|\r/));
-    console.log(memOrder)
+    // console.log(memOrder)
+
+    const formatterCurrency = new Intl.NumberFormat('de-DE', {
+        useGrouping: true,
+  groupSeparator: '.', // Force dot for grouping
+  decimalSeparator: ',', // Force comma for decimal
+  // minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+
+    });
+
 
     $(document).ready(async function () {
         window.uid = await CONFIG.get('uid');
@@ -166,17 +153,17 @@
                         let x = (!j && !k);
 
                         let tr = $('<tr>').attr('data-model', model).appendTo(table);
-                        !!~starModels.indexOf(model) && tr.addClass('star');
-                        tr.on('mouseover mouseout', _ => {
-                            $(`tr[data-model="${model}"]`).toggleClass('isHover');
-                        });
+                        // !!~starModels.indexOf(model) && tr.addClass('star');
+                        // tr.on('mouseover mouseout', _ => {
+                        //     $(`tr[data-model="${model}"]`).toggleClass('isHover');
+                        // });
                         
                         let td_1 = $('<td>').html('<div>' + model + '</div>').attr({
                             'rowspan': (!x ? 1 : (uniqueMem.length * colorGroup.length)),
                         }).appendTo(tr);
                         !x && td_1.hide();
 
-                        x && $(`<i class="fa-solid fa-star">`).click(() => starToggle(model)).appendTo(td_1);
+                        
 
                         let td_2 = $('<td>').text(mem).attr({
                             'rowspan': k ? 1 : colorGroup.length,
@@ -186,8 +173,10 @@
                         for (var l = 0; l <= 2; l++) {
                             let color = colors[l] || '';
                             let price = !color ? '' : memData.find(item => (item.mem == mem && item.color == color))?.price;
+                            let priceFormat = price && formatterCurrency.format(price);
                             $('<td>').text(color).appendTo(tr);
-                            $('<td>').text(price).appendTo(tr);
+                            $('<td>').text(priceFormat).appendTo(tr);
+                            // $('<td>').text(price).appendTo(tr);
                         }
                     });
                 });
