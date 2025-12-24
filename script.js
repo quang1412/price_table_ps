@@ -87,16 +87,7 @@
     const memOrder = await fetch('https://docs.google.com/spreadsheets/d/1B0lsfTAz0T2YL2-J5D3ufloYwqlJeZbdqxn06VRbTno/gviz/tq?tqx=out:csv&tq&gid=1074479198&range=A1:A50&headers=0')
         .then(resp => resp.text()).then(text => text?.replaceAll(`"`, '').split(/\r?\n|\r/));
     // console.log(memOrder)
-
-    const formatterCurrency = new Intl.NumberFormat('de-DE', {
-        useGrouping: true,
-  groupSeparator: '.', // Force dot for grouping
-  decimalSeparator: ',', // Force comma for decimal
-  // minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-
-    });
-
+ 
 
     $(document).ready(async function () {
         window.uid = await CONFIG.get('uid');
@@ -173,10 +164,8 @@
                         for (var l = 0; l <= 2; l++) {
                             let color = colors[l] || '';
                             let price = !color ? '' : memData.find(item => (item.mem == mem && item.color == color))?.price;
-                            let priceFormat = price && formatterCurrency.format(price);
                             $('<td>').text(color).appendTo(tr);
-                            $('<td>').text(priceFormat).appendTo(tr);
-                            // $('<td>').text(price).appendTo(tr);
+                            $('<td>').text(price).appendTo(tr); 
                         }
                     });
                 });
